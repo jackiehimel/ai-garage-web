@@ -1,11 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { navGroups } from "@/lib/garage-content";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { libraryTeamTabs, navGroups } from "@/lib/garage-content";
 
 export function PortalNav() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const selectedLibraryTeam = searchParams.get("fn");
+  const onLibraryRoute = pathname === "/library";
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  const libraryExpanded = onLibraryRoute || libraryOpen;
 
   return (
     <>
@@ -41,21 +47,71 @@ export function PortalNav() {
           <span className="portal-brand-sub">Solvd · Internal</span>
         </div>
 
-        <nav aria-label="Primary navigation">
+        <nav aria-label="Primary navigation" className="font-[var(--font-geist-sans)]">
           {navGroups.map((group) => (
             <div key={group.title}>
               <h4>{group.title}</h4>
               <ul>
                 {group.links.map((item) => {
                   const isActive = pathname === item.href;
+                  const isLibraryRoot = item.href === "/library";
                   return (
                     <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        className={`portal-link ${isActive ? "active" : ""}`}
-                      >
-                        {item.label}
-                      </Link>
+                      {isLibraryRoot ? (
+                        <div className="portal-tree">
+                          <div className={`portal-link-row ${isActive ? "active" : ""}`}>
+                            <Link
+                              href="/library"
+                              className={`portal-link portal-link-grow ${
+                                onLibraryRoute ? "active" : ""
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                            <button
+                              type="button"
+                              aria-expanded={libraryExpanded}
+                              aria-label={
+                                libraryExpanded
+                                  ? "Collapse library teams"
+                                  : "Expand library teams"
+                              }
+                              className="portal-tree-toggle"
+                              onClick={() => setLibraryOpen((open) => !open)}
+                            >
+                              {libraryExpanded ? "▾" : "▸"}
+                            </button>
+                          </div>
+                          {libraryExpanded ? (
+                            <ul className="portal-subtabs ml-6 mt-1 space-y-1 border-l border-dashed border-[var(--rule)] pl-3">
+                              {libraryTeamTabs.map((team) => {
+                                const teamHref = `/library?fn=${encodeURIComponent(team.query)}`;
+                                const teamActive =
+                                  pathname === "/library" && selectedLibraryTeam === team.query;
+                                return (
+                                  <li key={team.query}>
+                                    <Link
+                                      href={teamHref}
+                                      className={`portal-subtab-link ${
+                                        teamActive ? "active" : ""
+                                      }`}
+                                    >
+                                      {team.label}
+                                    </Link>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          ) : null}
+                        </div>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          className={`portal-link ${isActive ? "active" : ""}`}
+                        >
+                          {item.label}
+                        </Link>
+                      )}
                     </li>
                   );
                 })}

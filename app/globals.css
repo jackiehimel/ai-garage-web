@@ -53,6 +53,7 @@ body {
   top: 0;
   height: 100vh;
   overflow-y: auto;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif !important;
 }
 
 .portal-brand {
@@ -83,8 +84,8 @@ body {
 }
 
 .portal-sidebar h4 {
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 10px;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: var(--ink-faint);
@@ -106,7 +107,9 @@ body {
   border-radius: 3px;
   color: var(--ink-soft);
   text-decoration: none;
-  font-size: 14px;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 17px !important;
+  line-height: 1.35;
 }
 
 .portal-link:hover {
@@ -116,6 +119,78 @@ body {
 
 .portal-link.active {
   border-left-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.portal-tree {
+  margin-bottom: 2px;
+}
+
+.portal-link-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  column-gap: 6px;
+  align-items: center;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.portal-link-grow {
+  width: 100%;
+  min-width: 0;
+}
+
+.portal-link-row .portal-link {
+  margin-left: 0;
+}
+
+.portal-tree-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--ink-faint);
+  cursor: pointer;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-tree-toggle:hover {
+  color: var(--ink);
+}
+
+.portal-subtabs {
+  list-style: none;
+  margin: 4px 0 8px 18px;
+  padding: 0 0 0 12px;
+  border-left: 1px dashed var(--rule);
+}
+
+.portal-subtab-link {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 3px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.35;
+}
+
+.portal-subtab-link:hover {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.portal-subtab-link.active {
   background: var(--accent-soft);
   color: var(--accent);
   font-weight: 500;

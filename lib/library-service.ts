@@ -1,10 +1,11 @@
 import {
   agentLibrary,
+  audienceOptions,
   collectionCatalog,
   experienceOptions,
-  functionOptions,
   getAgentById,
   statusOptions,
+  teamOptions,
   verticalOptions,
   type AgentCollection,
   type AgentLibraryEntry,
@@ -13,6 +14,7 @@ import {
 export type LibraryFilters = {
   view: "all" | "featured";
   fn: string;
+  audience: string;
   vertical: string;
   status: string;
   experience: string;
@@ -22,6 +24,7 @@ export type LibraryFilters = {
 export type LibraryQueryInput = {
   view?: string | null;
   fn?: string | null;
+  audience?: string | null;
   industry?: string | null;
   status?: string | null;
   exp?: string | null;
@@ -38,7 +41,8 @@ const collectionIds = collectionCatalog.map((collection) => collection.id);
 
 const allowedValues: Record<keyof LibraryFilters, string[]> = {
   view: ["all", "featured"],
-  fn: ["all", ...functionOptions],
+  fn: ["all", ...teamOptions],
+  audience: ["all", ...audienceOptions],
   vertical: ["all", ...verticalOptions],
   status: ["all", ...statusOptions],
   experience: ["all", ...experienceOptions],
@@ -48,6 +52,7 @@ const allowedValues: Record<keyof LibraryFilters, string[]> = {
 const inputKeyByField: Record<keyof LibraryFilters, keyof LibraryQueryInput> = {
   view: "view",
   fn: "fn",
+  audience: "audience",
   vertical: "industry",
   status: "status",
   experience: "exp",
@@ -59,10 +64,6 @@ function coerce(value: string | null | undefined): string {
   return value;
 }
 
-/**
- * Lenient normalization for the UI: unknown values fall back to "all" so a
- * hand-edited query string never breaks the page.
- */
 export function sanitizeFilters(input: LibraryQueryInput): LibraryFilters {
   const result = {} as LibraryFilters;
   (Object.keys(allowedValues) as (keyof LibraryFilters)[]).forEach((field) => {
@@ -73,10 +74,6 @@ export function sanitizeFilters(input: LibraryQueryInput): LibraryFilters {
   return result;
 }
 
-/**
- * Strict validation for the API contract: unknown values surface as errors so
- * external callers get a clean, explicit rejection.
- */
 export function validateFilters(
   input: LibraryQueryInput,
 ):
@@ -104,7 +101,9 @@ export function validateFilters(
 
 function entryMatches(entry: AgentLibraryEntry, filters: LibraryFilters) {
   if (filters.view === "featured" && !entry.featured) return false;
-  if (filters.fn !== "all" && entry.function !== filters.fn) return false;
+  if (filters.fn !== "all" && entry.team !== filters.fn) return false;
+  if (filters.audience !== "all" && entry.audience !== filters.audience)
+    return false;
   if (filters.vertical !== "all" && entry.vertical !== filters.vertical)
     return false;
   if (filters.status !== "all" && entry.status !== filters.status) return false;

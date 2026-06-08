@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { PortalNav } from "@/components/portal-nav";
@@ -38,7 +39,9 @@ export default function RootLayout({
       className={`${plexSans.variable} ${plexMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="portal-shell">
-        <PortalNav />
+        <Suspense>
+          <PortalNav />
+        </Suspense>
         <div className="portal-main">{children}</div>
       </body>
     </html>

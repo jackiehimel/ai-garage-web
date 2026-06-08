@@ -11,9 +11,9 @@ export const navGroups = [
   {
     title: "The Three Links",
     links: [
-      { href: "/epics", label: "Epics & Stories" },
       { href: "/plan", label: "Execution Plan" },
       { href: "/library", label: "Agentic Library" },
+      { href: "/epics", label: "Agent Backlog" },
     ],
   },
   {
@@ -30,6 +30,14 @@ export const navGroups = [
       { href: "/contact", label: "Contact" },
     ],
   },
+];
+
+export const libraryTeamTabs = [
+  { label: "Internal", query: "Internal" },
+  { label: "Web Development", query: "Web Development" },
+  { label: "QE", query: "QE" },
+  { label: "Mobile", query: "Mobile" },
+  { label: "Full Stack", query: "Full Stack" },
 ];
 
 export const tracks = [
