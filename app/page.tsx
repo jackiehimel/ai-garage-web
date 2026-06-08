@@ -1,65 +1,127 @@
-import Image from "next/image";
+import Link from "next/link";
+import {
+  accomplishments,
+  categories,
+  epicCards,
+  siteMeta,
+  tracks,
+} from "@/lib/garage-content";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="page-wrap">
+      <header className="mb-12 border-b border-[var(--rule)] pb-8">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
+          Internal Portal
+        </p>
+        <h1 className="mb-4 font-[var(--font-fraunces)] text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
+          {siteMeta.title}
+        </h1>
+        <p className="max-w-[62ch] font-[var(--font-fraunces)] text-xl leading-relaxed text-[var(--ink-soft)]">
+          {siteMeta.subtitle}
+        </p>
+      </header>
+
+      <section aria-labelledby="tracks-heading" className="mb-12">
+        <h2
+          id="tracks-heading"
+          className="mb-5 font-[var(--font-fraunces)] text-[30px] tracking-[-0.02em] text-[var(--ink)]"
+        >
+          Tracks
+        </h2>
+        <div className="grid gap-4 md:grid-cols-2">
+          {tracks.map((track) => (
+            <article
+              key={track.id}
+              id={track.id}
+              className="rounded-md border border-[var(--rule)] bg-[var(--paper)] p-6"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
+                {track.index} — {track.status}
+              </p>
+              <h3 className="mb-2 font-[var(--font-fraunces)] text-2xl font-medium text-[var(--ink)] normal-case tracking-[-0.01em]">
+                {track.title}
+              </h3>
+              <p className="text-[15px] leading-7 text-[var(--ink-soft)]">
+                {track.description}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="categories-heading" className="mb-12">
+        <h2
+          id="categories-heading"
+          className="mb-5 font-[var(--font-fraunces)] text-[30px] tracking-[-0.02em] text-[var(--ink)]"
+        >
+          Agentic Library Categories
+        </h2>
+        <ul className="grid gap-4 sm:grid-cols-2">
+          {categories.map((category) => (
+            <li
+              key={category.name}
+              className="rounded-md border border-[var(--rule)] bg-[var(--paper)] px-5 py-4"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <p className="font-[var(--font-fraunces)] text-xl text-[var(--ink)]">
+                {category.name}
+              </p>
+              <p className="mt-2 text-[15px] leading-7 text-[var(--ink-soft)]">
+                {category.summary}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mb-12">
+        <h2 className="mb-5 font-[var(--font-fraunces)] text-[30px] tracking-[-0.02em] text-[var(--ink)]">
+          Accomplished so far
+        </h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {accomplishments.map((item) => (
+            <article
+              key={item.label}
+              className="rounded-md border border-[var(--rule)] bg-[var(--paper)] p-4"
+            >
+              <p className="font-[var(--font-fraunces)] text-4xl text-[var(--ink)]">
+                {item.count}
+              </p>
+              <p className="mt-1 text-sm font-semibold text-[var(--ink)]">
+                {item.label}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-[var(--ink-soft)]">
+                {item.note}
+              </p>
+            </article>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section>
+        <h2 className="mb-5 font-[var(--font-fraunces)] text-[30px] tracking-[-0.02em] text-[var(--ink)]">
+          Epics in flight
+        </h2>
+        <div className="grid gap-px overflow-hidden rounded-md border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-3">
+          {epicCards.map((epic) => (
+            <Link
+              key={epic.id}
+              href="/epics"
+              className="bg-[var(--paper)] p-5 no-underline transition hover:bg-[var(--paper-warm)]"
+            >
+              <p className="font-mono text-[11px] tracking-[0.08em] text-[var(--ink-faint)]">
+                Epic {epic.id}
+              </p>
+              <h3 className="mt-2 font-[var(--font-fraunces)] text-2xl font-medium normal-case tracking-[-0.01em] text-[var(--ink)]">
+                {epic.title}
+              </h3>
+              <p className="mt-2 text-[14px] leading-6 text-[var(--ink-soft)]">
+                {epic.description}
+              </p>
+            </Link>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }

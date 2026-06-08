@@ -1,0 +1,35 @@
+{
+  "portalTitle": "AI Garage — Solvd",
+  "legacyPortalUrl": "https://ai-garage-navy.vercel.app/",
+  "tracks": [
+    {
+      "id": "library",
+      "status": "Track Open",
+      "title": "Agentic Library",
+      "summary": "Categorized catalog of working agents the GTM team uses in customer conversations."
+    },
+    {
+      "id": "workshop",
+      "status": "Track Open",
+      "title": "Agentic Workshop",
+      "summary": "Structured intake where Solvd teams bring ideas to qualify and ship working agents."
+    }
+  ],
+  "categories": [
+    "Quality Engineering",
+    "Development / ADLC",
+    "Marketing",
+    "Retail & Vertical"
+  ],
+  "requiredPhrases": [
+    "AI Garage — Solvd",
+    "Agentic Library",
+    "Agentic Workshop",
+    "What's shipping",
+    "Why it matters",
+    "Plan, June",
+    "Accomplished so far",
+    "Epic 01",
+    "AI Espresso"
+  ]
+}
