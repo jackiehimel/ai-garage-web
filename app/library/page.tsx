@@ -35,21 +35,21 @@ export default async function LibraryPage({
 
   return (
     <main className="page-wrap page-wrap-wide">
-      <header className="mb-12 border-b border-[var(--rule)] pb-8">
+      <header className="mb-12 border-b border-[var(--rule)] pb-8 text-center">
         <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
           AI Garage / Library
         </p>
-        <h1 className="mb-4 font-[var(--font-fraunces)] text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
+        <h1 className="mb-4 font-serif text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
           Agentic Library
         </h1>
-        <p className="max-w-[62ch] font-[var(--font-fraunces)] text-xl leading-relaxed text-[var(--ink-soft)]">
+        <p className="mx-auto max-w-[62ch] font-serif text-xl leading-relaxed text-[var(--ink-soft)]">
           Explore AI Garage agents by category, team, and audience.
         </p>
       </header>
 
       <section className="space-y-4">
         <div className="flex items-start justify-between gap-3">
-          <h2 className="m-0 font-[var(--font-fraunces)] text-[30px] leading-none tracking-[-0.02em] text-[var(--ink)]">
+          <h2 className="m-0 font-serif text-[30px] leading-none tracking-[-0.02em] text-[var(--ink)]">
             Agents ({agents.length})
           </h2>
           <p className="m-0 pt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-[var(--ink-faint)]">
@@ -64,7 +64,7 @@ export default async function LibraryPage({
               className="rounded-md border border-[var(--rule)] bg-[var(--paper-warm)] p-5 text-center"
             >
               <div className="mb-2 space-y-2">
-                <h3 className="m-0 font-[var(--font-fraunces)] text-2xl font-medium normal-case tracking-[-0.01em] text-[var(--ink)]">
+                <h3 className="m-0 font-serif text-2xl font-medium normal-case tracking-[-0.01em] text-[var(--ink)]">
                   {agent.title}
                 </h3>
                 <span className="inline-block rounded-sm bg-[var(--accent-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-[var(--accent)]">
@@ -98,7 +98,7 @@ export default async function LibraryPage({
 
       {agents.length === 0 ? (
         <section className="mt-6 rounded-md border border-[var(--rule)] bg-[var(--paper-warm)] p-5">
-          <h2 className="font-[var(--font-fraunces)] text-2xl text-[var(--ink)]">
+          <h2 className="font-serif text-2xl text-[var(--ink)]">
             No matches yet
           </h2>
           <p className="mt-2 text-[15px] text-[var(--ink-soft)]">

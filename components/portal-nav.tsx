@@ -47,7 +47,7 @@ export function PortalNav() {
           <span className="portal-brand-sub">Solvd · Internal</span>
         </div>
 
-        <nav aria-label="Primary navigation" className="font-[var(--font-geist-sans)]">
+        <nav aria-label="Primary navigation">
           {navGroups.map((group) => (
             <div key={group.title}>
               <h4>{group.title}</h4>

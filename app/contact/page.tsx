@@ -24,32 +24,47 @@ const contactRows = [
 
 export default function ContactPage() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 py-10 sm:px-10">
-      <header className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.14em] text-cyan-300">
+    <main className="page-wrap">
+      <header className="mb-12 border-b border-[var(--rule)] pb-8 text-center">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
           AI Garage / Get Involved
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-white">Contact</h1>
-        <p className="max-w-3xl text-slate-300">
+        <h1 className="mb-4 font-serif text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
+          Contact
+        </h1>
+        <p className="mx-auto max-w-[62ch] font-serif text-xl leading-relaxed text-[var(--ink-soft)]">
           How to engage with the Garage based on what you want to do.
         </p>
       </header>
 
-      <section className="rounded-xl border border-slate-700/70 bg-slate-900/60 p-5">
-        <h2 className="text-xl font-semibold text-slate-100">How to reach us</h2>
+      <section className="rounded-md border border-[var(--rule)] bg-[var(--paper)] p-6">
+        <h2 className="font-serif text-2xl text-[var(--ink)]">
+          How to reach us
+        </h2>
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[620px] border-collapse text-sm">
             <thead>
-              <tr className="border-b border-slate-700 text-left text-slate-200">
-                <th className="py-2 pr-3">If you want to…</th>
-                <th className="py-2">Do this</th>
+              <tr className="border-b border-[var(--rule)] text-left">
+                <th className="py-2 pr-3 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
+                  If you want to…
+                </th>
+                <th className="py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
+                  Do this
+                </th>
               </tr>
             </thead>
             <tbody>
               {contactRows.map((row) => (
-                <tr key={row.goal} className="border-b border-slate-800/70">
-                  <td className="py-2 pr-3 text-slate-100">{row.goal}</td>
-                  <td className="py-2 text-slate-300">{row.action}</td>
+                <tr
+                  key={row.goal}
+                  className="border-b border-[var(--rule)] last:border-b-0"
+                >
+                  <td className="py-3 pr-3 font-serif text-base text-[var(--ink)]">
+                    {row.goal}
+                  </td>
+                  <td className="py-3 text-sm leading-6 text-[var(--ink-soft)]">
+                    {row.action}
+                  </td>
                 </tr>
               ))}
             </tbody>

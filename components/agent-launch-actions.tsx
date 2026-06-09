@@ -9,6 +9,7 @@ const unavailableClasses =
 
 export function LaunchAction({ launch }: { launch: AgentLaunch }) {
   if (launch.launchType === "unavailable" || !launch.launchUrl) {
+    if (!launch.availabilityReason) return null;
     return (
       <span
         aria-disabled="true"

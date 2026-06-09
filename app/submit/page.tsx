@@ -5,64 +5,63 @@ const intakeSteps = [
   "Ship with submitter involvement through demo and delivery.",
 ];
 
+const inputClasses =
+  "rounded-sm border border-[var(--rule)] bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--accent)] focus:outline-none";
+
 export default function SubmitPage() {
   return (
-    <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-8 px-6 py-10 sm:px-10">
-      <header className="space-y-3">
-        <p className="text-sm uppercase tracking-[0.14em] text-cyan-300">
+    <main className="page-wrap">
+      <header className="mb-12 border-b border-[var(--rule)] pb-8 text-center">
+        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
           AI Garage / Get Involved
         </p>
-        <h1 className="text-4xl font-bold tracking-tight text-white">
+        <h1 className="mb-4 font-serif text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
           Submit an Idea
         </h1>
-        <p className="max-w-3xl text-slate-300">
+        <p className="mx-auto max-w-[62ch] font-serif text-xl leading-relaxed text-[var(--ink-soft)]">
           Bring an agent idea to the Workshop track. Approved ideas receive
           engineering support and coaching.
         </p>
       </header>
 
-      <section className="rounded-xl border border-slate-700/70 bg-slate-900/60 p-5">
-        <h2 className="text-xl font-semibold text-slate-100">How it works</h2>
-        <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-300">
+      <section className="rounded-md border border-[var(--rule)] bg-[var(--paper)] p-6">
+        <h2 className="font-serif text-2xl text-[var(--ink)]">How it works</h2>
+        <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-[var(--ink-soft)] marker:font-mono marker:text-[var(--ink-faint)]">
           {intakeSteps.map((step) => (
             <li key={step}>{step}</li>
           ))}
         </ol>
       </section>
 
-      <section className="rounded-xl border border-slate-700/70 bg-slate-900/60 p-5">
-        <h2 className="text-xl font-semibold text-slate-100">Submission form</h2>
+      <section className="mt-8 rounded-md border border-[var(--rule)] bg-[var(--paper)] p-6">
+        <h2 className="font-serif text-2xl text-[var(--ink)]">
+          Submission form
+        </h2>
         <form className="mt-4 grid gap-3 sm:grid-cols-2">
-          <input
-            placeholder="Your name"
-            className="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
-          />
-          <input
-            placeholder="Idea title"
-            className="rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
-          />
+          <input placeholder="Your name" className={inputClasses} />
+          <input placeholder="Idea title" className={inputClasses} />
           <textarea
             placeholder="Problem statement"
             rows={4}
-            className="sm:col-span-2 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
+            className={`${inputClasses} sm:col-span-2`}
           />
           <textarea
             placeholder="Business case"
             rows={4}
-            className="sm:col-span-2 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
+            className={`${inputClasses} sm:col-span-2`}
           />
           <textarea
             placeholder="Proposed solution"
             rows={4}
-            className="sm:col-span-2 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
+            className={`${inputClasses} sm:col-span-2`}
           />
           <input
             placeholder="Expected outcome"
-            className="sm:col-span-2 rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100 placeholder:text-slate-500"
+            className={`${inputClasses} sm:col-span-2`}
           />
           <button
             type="button"
-            className="sm:col-span-2 w-fit rounded-md bg-cyan-600 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-500"
+            className="w-fit rounded-sm bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 sm:col-span-2"
           >
             Submit
           </button>

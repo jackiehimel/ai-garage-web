@@ -25,14 +25,14 @@ export default async function AgentDetailPage({
 
   return (
     <main className="page-wrap">
-      <header className="mb-12 border-b border-[var(--rule)] pb-8">
+      <header className="mb-12 border-b border-[var(--rule)] pb-8 text-center">
         <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
           AI Garage / Library / Agent Preview
         </p>
-        <h1 className="mb-4 font-[var(--font-fraunces)] text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
+        <h1 className="mb-4 font-serif text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
           {agent.title}
         </h1>
-        <p className="max-w-[62ch] font-[var(--font-fraunces)] text-xl leading-relaxed text-[var(--ink-soft)]">
+        <p className="mx-auto max-w-[62ch] font-serif text-xl leading-relaxed text-[var(--ink-soft)]">
           {agent.summary}
         </p>
       </header>
@@ -59,7 +59,7 @@ export default async function AgentDetailPage({
 
         <div className="mt-5 grid gap-4 md:grid-cols-2">
           <div>
-            <h2 className="font-[var(--font-fraunces)] text-2xl text-[var(--ink)]">
+            <h2 className="font-serif text-2xl text-[var(--ink)]">
               Required inputs
             </h2>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--ink-soft)]">
@@ -69,7 +69,7 @@ export default async function AgentDetailPage({
             </ul>
           </div>
           <div>
-            <h2 className="font-[var(--font-fraunces)] text-2xl text-[var(--ink)]">
+            <h2 className="font-serif text-2xl text-[var(--ink)]">
               Capabilities
             </h2>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-[var(--ink-soft)]">
@@ -93,7 +93,7 @@ export default async function AgentDetailPage({
       </section>
 
       <section className="mt-8 rounded-md border border-[var(--rule)] bg-[var(--paper)] p-5">
-        <h2 className="font-[var(--font-fraunces)] text-2xl text-[var(--ink)]">
+        <h2 className="font-serif text-2xl text-[var(--ink)]">
           Collections
         </h2>
         <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-[var(--ink-soft)]">
