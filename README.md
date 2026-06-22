@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Garage — Solvd
 
-## Getting Started
+Internal portal for Solvd's AI Garage: a categorized library of working agents,
+a backlog of planned agents, an intake workflow for new ideas, and a live demo of
+the **AI Espresso** briefing agent. Built with the Next.js App Router so the static
+legacy portal can grow into a full-stack, agent-hosting platform.
 
-First, run the development server:
+> Status: pre-handoff. The portal and the AI Espresso rewrite demo are live; the
+> submission persistence, full Espresso publish pipeline, and agent-hosting /
+> GitHub-approval surfaces are scoped but not yet built. See
+> [docs/roadmap.md](docs/roadmap.md) for what is done and what is next.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) 16 (App Router, Turbopack)
+- React 19
+- TypeScript 5 (strict)
+- Tailwind CSS 4
+- [`@anthropic-ai/sdk`](https://www.npmjs.com/package/@anthropic-ai/sdk) for the
+  AI Espresso live demo
+- Deployed on [Vercel](https://vercel.com)
+
+## Getting started
+
+Requires Node.js 20+.
 
 ```bash
+npm install
+cp .env.example .env.local   # then fill in ANTHROPIC_API_KEY
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). If port 3000 is taken, Next
+falls back to 3001.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `ANTHROPIC_API_KEY` | Yes (for the AI Espresso demo) | Server-side key used by `POST /api/try`. The demo degrades to a static fallback if it is missing or the call fails, so the rest of the app runs without it. |
+| `NEXT_PUBLIC_ESPRESSO_DEMO_API` | No | Optional external Espresso demo endpoint. |
+| `MICROSOFT_*`, `OUTLOOK_*` | No | Reserved for the deferred tech-talk calendar integration. |
 
-## Learn More
+See [.env.example](.env.example) for the full list.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server. |
+| `npm run build` | Production build. |
+| `npm run start` | Serve the production build. |
+| `npm run lint` | ESLint (Next core-web-vitals + TypeScript). |
+| `npm run test` | Run the Vitest unit suite. |
+| `npm run parity:check` | Verify the legacy portal still contains the expected content anchors (see `parity/`). |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Routes
 
-## Deploy on Vercel
+| Route | Description |
+| --- | --- |
+| `/` | Home portal: tracks, library categories, accomplishments, epics. |
+| `/library` | Filterable catalog of completed agents. |
+| `/library/[agentId]` | Per-agent detail page. |
+| `/epics` | Agent backlog as flip cards. |
+| `/plan` | Execution plan and accomplishments. |
+| `/espresso` | AI Espresso pipeline overview + live "try it" demo. |
+| `/roundtable` | AI Roundtable tech-talk submission form. |
+| `/submit` | Idea intake for the Workshop track. |
+| `/contact` | Contact / routing table. |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### API
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Endpoint | Description |
+| --- | --- |
+| `POST /api/try` | Runs the AI Espresso rewrite stage against the latest edition; rate-limited, with a static fallback. |
+| `GET /api/library/agents` | Filtered agent list. Validates filters (400 on invalid). |
+| `GET /api/library/agents/[agentId]` | Single agent detail (400 invalid id, 404 unknown). |
+| `POST /api/submissions/talk` | Validates a tech-talk submission (422 on invalid). Persistence is not yet wired. |
+
+## Architecture
+
+`lib/library-service.ts` is the shared backbone feeding both the library pages and
+the library API. The AI Espresso demo hosts only the rewrite stage in this repo via
+`POST /api/try`; the full discovery-to-email pipeline lives in the external
+[`ai-espresso-finalized`](https://github.com/jackiehimel/ai-espresso-finalized)
+repository and GHCR image. For request flows, the agent-readiness story, and where
+future agent-hosting hooks attach, see [docs/architecture.md](docs/architecture.md).
+
+## Documentation
+
+- [docs/architecture.md](docs/architecture.md) — system overview and agent design
+- [docs/roadmap.md](docs/roadmap.md) — workstream status and what's next
+- [docs/parity.md](docs/parity.md) — legacy-to-Next parity tracking
+- [CONTRIBUTING.md](CONTRIBUTING.md) — setup, conventions, and how to run checks
+- [SECURITY.md](SECURITY.md) — reporting and secret handling
+
+## Deployment
+
+Deploys to Vercel from `github.com/jackiehimel/ai-garage-next`. The only required
+environment variable is `ANTHROPIC_API_KEY`.
