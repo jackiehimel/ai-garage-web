@@ -56,7 +56,7 @@ To add a test: create `tests/<module>.test.ts`, import from `@/lib/<module>`, fo
 - Inspect rendered pages yourself in the browser (screenshots/snapshots) to find visual issues.
 - Do risky or experimental feature work on a separate branch, never directly on `main`.
 - For deferred features, document the plan in a local uncommitted markdown file and return to `main`.
-- Update progress docs as work proceeds: `docs/superpowers/program-board.md`, `docs/superpowers/checklists/parity-matrix.md`. Use gitignored `docs/handoff-session-*.md` for session notes (never committed).
+- Use gitignored `docs/handoff-session-*.md` for session notes (never committed).
 - Pause after implementing UI changes so the user can visually review on the local preview.
 - Keep code clean and professional; no over-commenting; do not add anything unnecessary.
 
@@ -67,4 +67,4 @@ To add a test: create `tests/<module>.test.ts`, import from `@/lib/<module>`, fo
 - `/api/try` must never hard-error — always fall back to static story text on any failure path.
 - Neither idea nor talk submissions persist yet — storage is deferred to the incoming team.
 - Tech talks run only on Fridays; a Microsoft Forms calendar integration is planned but deferred.
-- Planning and tracking docs live under `docs/superpowers/`. Leadership-facing docs live under `docs/`.
+- Leadership-facing docs live under `docs/` (architecture.md, roadmap.md, parity.md, project-brief.md).

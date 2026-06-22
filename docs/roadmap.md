@@ -1,8 +1,7 @@
 # Roadmap
 
 Status of the AI Garage portal and the work remaining to reach a full-stack,
-agent-hosting platform. This is the leadership-facing summary; the live internal
-execution board is `docs/superpowers/program-board.md`.
+agent-hosting platform.
 
 ## Where things stand
 
@@ -33,7 +32,3 @@ execution board is `docs/superpowers/program-board.md`.
 4. Lint, build, and tests green in CI.
 5. Manual smoke tests pass on a preview deployment.
 
-## How work is tracked internally
-
-Detailed execution lives under `docs/superpowers/` (program board and parity
-matrix).
