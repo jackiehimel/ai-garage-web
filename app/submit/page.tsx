@@ -1,12 +1,11 @@
+import { IdeaForm } from "@/components/idea-form";
+
 const intakeSteps = [
   "Submit problem, business case, and proposed outcome.",
   "Qualify through a regular review cadence.",
   "Build with bench engineering support and senior coaching.",
   "Ship with submitter involvement through demo and delivery.",
 ];
-
-const inputClasses =
-  "rounded-sm border border-[var(--rule)] bg-[var(--paper)] px-3 py-2 text-sm text-[var(--ink)] placeholder:text-[var(--ink-faint)] focus:border-[var(--accent)] focus:outline-none";
 
 export default function SubmitPage() {
   return (
@@ -37,35 +36,7 @@ export default function SubmitPage() {
         <h2 className="font-serif text-2xl text-[var(--ink)]">
           Submission form
         </h2>
-        <form className="mt-4 grid gap-3 sm:grid-cols-2">
-          <input placeholder="Your name" className={inputClasses} />
-          <input placeholder="Idea title" className={inputClasses} />
-          <textarea
-            placeholder="Problem statement"
-            rows={4}
-            className={`${inputClasses} sm:col-span-2`}
-          />
-          <textarea
-            placeholder="Business case"
-            rows={4}
-            className={`${inputClasses} sm:col-span-2`}
-          />
-          <textarea
-            placeholder="Proposed solution"
-            rows={4}
-            className={`${inputClasses} sm:col-span-2`}
-          />
-          <input
-            placeholder="Expected outcome"
-            className={`${inputClasses} sm:col-span-2`}
-          />
-          <button
-            type="button"
-            className="w-fit rounded-sm bg-[var(--accent)] px-3 py-2 text-sm font-medium text-white hover:opacity-90 sm:col-span-2"
-          >
-            Submit
-          </button>
-        </form>
+        <IdeaForm />
       </section>
     </main>
   );
