@@ -91,7 +91,7 @@ agent-hosting platform without re-architecting:
 - **More live agents** follow the `/api/try` pattern: an API route that loads
   inputs, calls a model, validates output, and degrades gracefully.
 - **Submission persistence** attaches behind the existing validated endpoints
-  (`/api/submissions/talk`, and the planned idea endpoint). Validation already
+  (`/api/submissions/talk`, `/api/submissions/idea`). Validation already
   lives in `lib/`, so only a storage adapter is needed.
 - **GitHub agent-approval / agent hosting** would sit behind new API routes plus a
   persistence and auth layer. The shared-service and graceful-fallback patterns

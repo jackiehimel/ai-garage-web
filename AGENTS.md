@@ -11,7 +11,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Inspect rendered pages yourself in the browser (screenshots/snapshots) to find and fix visual issues instead of asking the user to describe them.
 - Do risky or experimental feature work on a separate branch, never directly on `main`.
 - For deferred features, document the plan in a local uncommitted markdown file and return to `main` instead of building immediately.
-- Update progress docs as work proceeds: `docs/superpowers/program-board.md`, `docs/superpowers/checklists/parity-matrix.md`, and a new handoff in `docs/superpowers/handoffs/`.
+- Update progress docs as work proceeds: `docs/superpowers/program-board.md`, `docs/superpowers/checklists/parity-matrix.md`. Historical handoffs are archived under `docs/archive/handoffs/`; use gitignored `docs/handoff-session-*.md` for session notes.
 - Pause after implementing UI changes so the user can visually review on the local preview before continuing.
 - Keep code clean and professional; no over-commenting; do not add anything unnecessary.
 - Avoid Mermaid diagrams in the README or shared docs; prefer prose explanations or plain-text/ASCII diagrams that render the same in GitHub, editors, and terminals. When briefing the site verbally, lead with prose architecture, not a diagram.
