@@ -20,7 +20,7 @@ Track migration status from `ai-garage` (legacy static portal) to `ai-garage-nex
 | Espresso edition embed | `#page-espresso` | `/espresso` | IN PROGRESS | Needs native manifest/archive integration |
 | Espresso QOTD submission | outer + embedded forms | `/espresso` + API | NOT STARTED | Must implement validated backend path |
 | Roundtable content + form | `#page-roundtable` | `/roundtable` | IN PROGRESS | Form is UI-only currently |
-| Submit idea workflow | `#page-submit` | `/submit` + API | NOT STARTED | Must persist submissions |
+| Submit idea workflow | `#page-submit` | `/submit` + API | IN PROGRESS | Form + API wired (validates, returns 201); persistence deferred |
 | Contact routing table | `#page-squad` | `/contact` | IN PROGRESS | Base content ported |
 | Hash routing behavior | inline JS nav | App Router links | DONE | Route-based nav implemented |
 | Legacy reveal toggles | inline JS toggles | React client components | NOT STARTED | Specific interaction parity pending |
@@ -29,7 +29,7 @@ Track migration status from `ai-garage` (legacy static portal) to `ai-garage-nex
 | Edition sync pipeline | `scripts/sync-espresso-from-manifest.mjs` | migrated/retained in next repo | IN PROGRESS | Strategy chosen, full integration pending |
 
 ## Backend Readiness Checklist
-- [ ] `POST /api/submissions/idea`
+- [x] `POST /api/submissions/idea`
 - [ ] `POST /api/submissions/roundtable`
 - [ ] `POST /api/espresso/qotd`
 - [ ] persistent storage selected and wired

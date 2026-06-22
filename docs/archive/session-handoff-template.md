@@ -23,8 +23,8 @@ Copy this into each session-end note to preserve continuity across short chats.
 - 
 
 ## 5) Next Session Start Checklist
-- [ ] Read `docs/superpowers/specs/ai-garage-next-target.md`
-- [ ] Read `docs/superpowers/checklists/parity-matrix.md`
+- [ ] Read `docs/project-brief.md`
+- [ ] Read `docs/parity.md`
 - [ ] Confirm current branch and worktree path
 - [ ] Pick a single vertical slice with acceptance criteria
 

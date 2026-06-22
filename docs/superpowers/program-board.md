@@ -21,9 +21,9 @@ Complete `ai-garage-next` to production-ready parity + functional backend workfl
 
 ### WS2 — Submission Backend
 **Outcome:** forms are real workflows, not placeholders.
-- [ ] `POST /api/submissions/idea`
+- [x] `POST /api/submissions/idea`
 - [ ] `POST /api/submissions/roundtable`
-- [ ] validation schema + error responses
+- [x] validation schema + error responses
 - [ ] persistence layer + migration(s)
 - [ ] submission status model for triage
 
