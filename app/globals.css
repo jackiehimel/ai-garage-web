@@ -1,0 +1,329 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #171717;
+  --ink-soft: #404040;
+  --ink-faint: #737373;
+  --paper: #fafafa;
+  --paper-warm: #f5f5f5;
+  --rule: #d4d4d4;
+  --rule-soft: #e5e5e5;
+  --accent: #059669;
+  --accent-soft: #d1fae5;
+  --error: #dc2626;
+  --sidebar-width: 260px;
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-geist-mono), "IBM Plex Mono", monospace;
+  --font-serif: var(--font-fraunces), "Fraunces", "Times New Roman", Georgia, serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif;
+}
+
+.portal-shell {
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .portal-shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+  }
+}
+
+.portal-main {
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .portal-main {
+    border-left: 1px solid var(--rule);
+  }
+}
+
+.portal-sidebar {
+  padding: 48px 28px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif !important;
+}
+
+.portal-brand {
+  margin-bottom: 48px;
+}
+
+.portal-brand-mark {
+  display: block;
+  font-family: var(--font-geist-mono), "IBM Plex Mono", monospace;
+  font-size: 30px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.portal-brand-mark em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.portal-brand-sub {
+  display: block;
+  font-family: var(--font-geist-mono), "IBM Plex Mono", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-faint);
+}
+
+.portal-sidebar h4 {
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif !important;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-faint);
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.portal-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.portal-link {
+  display: block;
+  padding: 6px 10px;
+  margin-left: -10px;
+  border-left: 2px solid transparent;
+  border-radius: 3px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif !important;
+  font-size: 17px !important;
+  line-height: 1.35;
+}
+
+.portal-link:hover {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.portal-link.active {
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.portal-tree {
+  margin-bottom: 2px;
+}
+
+.portal-link-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 20px;
+  column-gap: 6px;
+  align-items: center;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.portal-link-grow {
+  width: 100%;
+  min-width: 0;
+}
+
+.portal-link-row .portal-link {
+  margin-left: 0;
+}
+
+.portal-tree-toggle {
+  border: 0;
+  background: transparent;
+  color: var(--ink-faint);
+  cursor: pointer;
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif !important;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portal-tree-toggle:hover {
+  color: var(--ink);
+}
+
+.portal-subtabs {
+  list-style: none;
+  margin: 4px 0 8px 18px;
+  padding: 0 0 0 12px;
+  border-left: 1px dashed var(--rule);
+}
+
+.portal-subtab-link {
+  display: block;
+  padding: 4px 8px;
+  border-radius: 3px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-family: var(--font-geist-sans), "IBM Plex Sans", Arial, Helvetica, sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.35;
+}
+
+.portal-subtab-link:hover {
+  background: var(--paper-warm);
+  color: var(--ink);
+}
+
+.portal-subtab-link.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.page-wrap {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 840px;
+  padding: 56px 28px 88px;
+}
+
+.page-wrap-wide {
+  max-width: none;
+}
+
+.library-layout {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.library-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.backlog-cards {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.backlog-card {
+  display: block;
+  width: 100%;
+  height: 280px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  perspective: 1200px;
+  outline: none;
+}
+
+.backlog-card:focus-visible .backlog-card-front,
+.backlog-card:focus-visible .backlog-card-back {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.backlog-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.backlog-card-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.backlog-card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid var(--rule);
+  background: var(--paper-warm);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.backlog-card-front {
+  align-items: center;
+  justify-content: center;
+}
+
+.backlog-card-front:hover {
+  border-color: var(--accent);
+  background: var(--paper);
+}
+
+.backlog-card-back {
+  transform: rotateY(180deg);
+  background: var(--paper);
+  align-items: stretch;
+  justify-content: flex-start;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.backlog-card-back-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 1024px) {
+  .page-wrap {
+    padding-left: 80px;
+    padding-right: 72px;
+  }
+
+  .page-wrap-wide {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 600px) {
+  .library-layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    align-items: start;
+  }
+
+  .library-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .backlog-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

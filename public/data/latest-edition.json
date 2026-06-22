@@ -1,0 +1,59 @@
+{
+  "date": "2026-06-06",
+  "generated_at": "2026-06-07T00:06:28.285132Z",
+  "model": "claude-sonnet-4-5",
+  "stories": [
+    {
+      "slot": "market",
+      "headline": "Google will pay SpaceX $920M per month for compute",
+      "blurb": "Google signed a deal to pay SpaceX $920 million monthly for computing resources, citing 'unexpected demand' for its recently launched AI products. The arrangement suggests Google's existing data center capacity can't keep up with how fast people are actually using its new AI tools.",
+      "why_it_matters": "When a hyperscaler rents compute at this scale, AI demand has outpaced even Google's infrastructure planning.",
+      "source_name": "TechCrunch \u2014 AI",
+      "source_url": "https://techcrunch.com/2026/06/05/google-will-pay-spacex-920m-per-month-for-compute/",
+      "original_headline": "Google will pay SpaceX $920M per month for compute"
+    },
+    {
+      "slot": "build",
+      "headline": "OpenAI built a GPT for drug discovery and genome analysis",
+      "blurb": "GPT-Rosalind now handles medicinal chemistry questions, analyzes genomic data, and suggests experimental workflows for life sciences labs. It's trained on biological reasoning tasks that standard models struggle with \u2014 protein interactions, compound design, sequencing output.",
+      "why_it_matters": "AI models are moving from general chat into specialized scientific work that requires domain expertise.",
+      "source_name": "OpenAI News",
+      "source_url": "https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind",
+      "original_headline": "Introducing new capabilities to GPT-Rosalind"
+    },
+    {
+      "slot": "everyday",
+      "headline": "Hackers broke into thousands of Instagram accounts by tricking Meta's AI chatbot",
+      "blurb": "Meta confirmed that attackers exploited its AI assistant to bypass account security and hijack thousands of Instagram profiles. The AI chatbot was manipulated into helping hackers reset passwords or gain unauthorized access, turning Meta's own customer service tool into an attack vector.",
+      "why_it_matters": "AI assistants with account access can become security liabilities if they lack robust safeguards against social engineering.",
+      "source_name": "Hacker News (front page)",
+      "source_url": "https://this.weekinsecurity.com/meta-confirms-thousands-of-instagram-accounts-were-hacked-by-abusing-its-ai-chatbot/",
+      "original_headline": "Meta confirms 1000s of Instagram accounts were hacked by abusing its AI chatbot"
+    },
+    {
+      "slot": "build",
+      "headline": "Wasmer built a Node.js edge runtime in weeks using Codex",
+      "blurb": "The WebAssembly company used OpenAI's Codex with GPT-5.5 to ship a full Node.js runtime for edge computing 10-20x faster than traditional development. What normally takes months of engineering work got done in weeks, handling the complexity of porting thousands of Node APIs to run at the edge.",
+      "why_it_matters": "AI coding tools are now fast enough to ship production infrastructure, not just prototypes.",
+      "source_name": "OpenAI News",
+      "source_url": "https://openai.com/index/wasmer",
+      "original_headline": "How Wasmer used Codex to build a Node.js runtime for the edge"
+    },
+    {
+      "slot": "industry",
+      "headline": "TSMC can't make chips fast enough for AI customers",
+      "blurb": "The world's largest chipmaker says demand from AI companies has outpaced what it can supply, even with new U.S. factories coming online. CEO C.C. Wei told shareholders the company is maxed out on how much capacity it can add right now.",
+      "why_it_matters": "AI hardware bottlenecks aren't going away \u2014 chip supply is the constraint on model deployment.",
+      "source_name": "The Verge \u2014 AI",
+      "source_url": "https://www.theverge.com/tech/943066/tsmc-ai-demand-struggles",
+      "original_headline": "TSMC struggles to keep up with AI demand: &#8216;We can only support so much&#8217;"
+    }
+  ],
+  "try_this_prompt": {
+    "title": "The confidence tax",
+    "kicker": "",
+    "prompt": "I'm about to paste something I wrote that sounds confident. Your job: flag every sentence where I'm actually guessing, every claim that needs a source I don't have, and every place I'm hiding uncertainty behind jargon. Then show me how to rewrite one paragraph to sound just as sharp while being honest about what I don't know.",
+    "tool_hint": "Before you send the memo that makes promises you can't keep."
+  },
+  "daily_question": "If you could give one AI company unlimited compute for a month, which would you pick and what would you want them to build?"
+}
