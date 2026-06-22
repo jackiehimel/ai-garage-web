@@ -28,8 +28,6 @@ export const SYSTEM_PROMPT =
   'Return a JSON array. Each element: {"headline": ..., "blurb": (50 words max), ' +
   '"why_it_matters": (1 sentence)}. Return ONLY the JSON array, no markdown fences.';
 
-// Reads the synced edition. Returns [] on any failure so callers never crash on a
-// missing or malformed file.
 export function loadStories(): EditionStory[] {
   try {
     const filePath = join(process.cwd(), "public", "data", "latest-edition.json");
@@ -48,8 +46,6 @@ export function buildPrompt(candidates: EditionStory[]): string {
   return prompt;
 }
 
-// Pulls the JSON array out of a model response and validates it is an array of
-// objects. Returns null when the output can't be trusted, signaling a fallback.
 export function parseRewrites(text: string): Rewrite[] | null {
   const start = text.indexOf("[");
   const end = text.lastIndexOf("]") + 1;

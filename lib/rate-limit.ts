@@ -1,9 +1,5 @@
-// In-memory, per-instance rate limiter for the AI Espresso demo.
-//
-// This is intentionally simple: it resets on cold start and is not shared across
-// serverless instances. For production abuse control, replace the module-level
-// `buckets` map with a durable store (e.g. Vercel KV / Upstash Redis) behind the
-// same `isRateLimited` signature.
+// Resets on cold start; not shared across instances. For production, swap the
+// module-level `buckets` Map for Vercel KV / Upstash behind the same signature.
 
 type Bucket = { count: number; resetAt: number };
 
