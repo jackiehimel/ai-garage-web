@@ -16,5 +16,4 @@ leadership-facing documentation, start at the top-level `docs/`:
 
 ## History
 
-Earlier session handoffs, the handoff template, and the original foundation plan
-are archived under `docs/archive/`.
+Earlier session handoffs and process templates are kept locally (gitignored).

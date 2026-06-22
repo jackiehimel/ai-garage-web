@@ -36,5 +36,4 @@ execution board is `docs/superpowers/program-board.md`.
 ## How work is tracked internally
 
 Detailed execution lives under `docs/superpowers/` (program board and parity
-matrix). Earlier session handoffs and process templates are preserved under
-`docs/archive/` for history.
+matrix).

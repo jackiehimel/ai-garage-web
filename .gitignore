@@ -34,8 +34,9 @@ yarn-error.log*
 .env*
 !.env.example
 
-# local-only session handoffs (not for remote)
+# local-only session handoffs and archive (not for remote)
 docs/handoff-session-*.md
+docs/archive/
 
 # ide
 .cursor/
