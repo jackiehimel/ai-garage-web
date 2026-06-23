@@ -9,12 +9,12 @@ import {
 
 export default function Home() {
   return (
-    <main className="page-wrap">
+    <main className="page-wrap home-page-wrap">
       <header className="mb-12 border-b border-[var(--rule)] pb-8 text-center">
-        <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
+        <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--ink-faint)]">
           Internal Portal
         </p>
-        <h1 className="mb-4 font-serif text-5xl leading-tight tracking-[-0.03em] text-[var(--ink)]">
+        <h1 className="mb-4 font-serif text-[42px] leading-tight tracking-[-0.03em] text-[var(--ink)]">
           {siteMeta.title}
         </h1>
         <p className="mx-auto max-w-[62ch] font-serif text-xl leading-relaxed text-[var(--ink-soft)]">
@@ -39,7 +39,7 @@ export default function Home() {
               <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
                 {track.index} — {track.status}
               </p>
-              <h3 className="mb-2 font-serif text-2xl font-medium text-[var(--ink)] normal-case tracking-[-0.01em]">
+              <h3 className="mb-2 font-serif text-[22px] font-medium text-[var(--ink)] normal-case tracking-[-0.01em]">
                 {track.title}
               </h3>
               <p className="text-[15px] leading-7 text-[var(--ink-soft)]">
@@ -90,7 +90,7 @@ export default function Home() {
               <p className="mt-1 text-sm font-semibold text-[var(--ink)]">
                 {item.label}
               </p>
-              <p className="mt-2 text-sm leading-6 text-[var(--ink-soft)]">
+              <p className="mt-1.5 text-sm leading-6 text-[var(--ink-soft)]">
                 {item.note}
               </p>
             </article>
@@ -109,10 +109,10 @@ export default function Home() {
               href="/epics"
               className="bg-[var(--paper)] p-5 no-underline transition hover:bg-[var(--paper-warm)]"
             >
-              <p className="font-mono text-[11px] tracking-[0.08em] text-[var(--ink-faint)]">
+              <p className="font-mono text-[10px] tracking-[0.08em] text-[var(--ink-faint)]">
                 Epic {epic.id}
               </p>
-              <h3 className="mt-2 font-serif text-2xl font-medium normal-case tracking-[-0.01em] text-[var(--ink)]">
+              <h3 className="mt-2 font-serif text-[22px] font-medium normal-case tracking-[-0.01em] text-[var(--ink)]">
                 {epic.title}
               </h3>
               <p className="mt-2 text-[14px] leading-6 text-[var(--ink-soft)]">
