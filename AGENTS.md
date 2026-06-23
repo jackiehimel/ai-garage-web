@@ -52,7 +52,7 @@ To add a test: create `tests/<module>.test.ts`, import from `@/lib/<module>`, fo
 
 ## Learned User Preferences
 
-- Never edit the original `ai-garage` repo; all migration work happens in `ai-garage-next`.
+- Never edit the original `ai-garage` repo; all work happens in `ai-garage-web`.
 - Review prior chats and existing docs before reworking UI or structure; do not re-litigate already-settled decisions.
 - Inspect rendered pages yourself in the browser (screenshots/snapshots) to find visual issues.
 - Do risky or experimental feature work on a separate branch, never directly on `main`.
@@ -64,7 +64,7 @@ To add a test: create `tests/<module>.test.ts`, import from `@/lib/<module>`, fo
 
 ## Learned Workspace Facts
 
-- Vercel deployment is not yet configured for this repo. The legacy portal deploys from `ai-garage` at `ai-garage-navy.vercel.app`. The only env var the app needs is `ANTHROPIC_API_KEY`.
+- Vercel deployment is live at `ai-garage-web.vercel.app`. Pushes to `main` auto-deploy. The only env var the app needs is `ANTHROPIC_API_KEY`.
 - AI Espresso is the only agent with a live demo. The full pipeline lives externally (repo `jackiehimel/ai-espresso-finalized`); this site hosts only the rewrite stage via `/api/try`, reading stories from `public/data/latest-edition.json`.
 - `/api/try` must never hard-error — always fall back to static story text on any failure path.
 - Neither idea nor talk submissions persist yet — storage is deferred to the incoming team.
