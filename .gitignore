@@ -50,6 +50,10 @@ SECURITY.md
 # ide
 .cursor/
 
+# agent config (local-only)
+CLAUDE.md
+AGENTS.md
+
 # vercel
 .vercel
 
