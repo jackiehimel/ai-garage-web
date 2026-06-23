@@ -92,7 +92,6 @@ future agent-hosting hooks attach, see [docs/architecture.md](docs/architecture.
 
 ## Deployment
 
-Not yet deployed. The legacy portal runs from
-[`ai-garage`](https://github.com/jackiehimel/ai-garage) at
-`ai-garage-navy.vercel.app`. When ready, create a new Vercel project pointing at
-this repo. The only required environment variable is `ANTHROPIC_API_KEY`.
+Deployed on Vercel at [ai-garage-web.vercel.app](https://ai-garage-web.vercel.app).
+Pushes to `main` trigger automatic production deployments. The only required
+environment variable is `ANTHROPIC_API_KEY`.
