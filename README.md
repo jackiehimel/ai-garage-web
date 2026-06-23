@@ -5,9 +5,7 @@ a backlog of planned agents, an intake workflow for new ideas, and a live demo o
 the **AI Espresso** briefing agent. Built with the Next.js App Router so the static
 legacy portal can grow into a full-stack, agent-hosting platform.
 
-> Status: pre-handoff. The portal and the AI Espresso rewrite demo are live; the
-> submission persistence, full Espresso publish pipeline, and agent-hosting /
-> GitHub-approval surfaces are scoped but not yet built. See
+> Status: See
 > [docs/roadmap.md](docs/roadmap.md) for what is done and what is next.
 
 ## Tech stack
